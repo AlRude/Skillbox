@@ -24,6 +24,7 @@ for city in sites.keys():
 
 for city in cities:
     distances[city] = {}
+    counter = 0
 
     while counter < len(cities):
         if cities[counter] == city:
