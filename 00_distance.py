@@ -22,21 +22,30 @@ for city in sites.keys():
 #print(cities)
 #print(len(cities))
 
-while counter < len(cities):
-    distances[cities[counter]] = {}
-    if counter == len(cities)-1 :
-        x1, y1 = sites[cities[counter]]
-        x2, y2 = sites[cities[0]]
+for city in cities:
+    distances[city] = {}
+
+    while counter < len(cities):
+        if cities[counter] == city:
+            pass
+        else:
+            x1, y1 = sites[city]
+            x2, y2 = sites[cities[counter]]
+            distances[city][cities[counter]] = (x1 - x2) ** 2 + (y1 - y2) ** 2
+        counter += 1
+    #if counter == len(cities)-1 :
+        #x1, y1 = sites[cities[counter]]
+        #x2, y2 = sites[cities[0]]
         #distance_name = str(cities[counter]+'_'+cities[0])
-        distances[cities[counter]][cities[0]] = (x1 - x2) ** 2 + (y1 - y2) ** 2
-    else:
-        x1, y1 = sites[cities[counter]]
-        x2, y2 = sites[cities[counter+1]]
+        #distances[cities[counter]][cities[0]] = (x1 - x2) ** 2 + (y1 - y2) ** 2
+    #else:
+        #x1, y1 = sites[cities[counter]]
+        #x2, y2 = sites[cities[counter+1]]
         #distance_name = str(cities[counter]+'_'+cities[counter+1])
-        distances[str(cities[counter])][str(cities[counter+1])] = (x1 - x2) ** 2 + (y1 - y2) ** 2
+        #distances[cities[counter]][cities[counter+1]] = (x1 - x2) ** 2 + (y1 - y2) ** 2
 
     #distances[cities[counter]][cities[0]] = (x1 - x2) ** 2 + (y1 - y2) ** 2
-    counter += 1
+    #counter += 1
 
 
 # TODO здесь заполнение словаря
